@@ -1,0 +1,54 @@
+<nav class="recording-breadcrumbs recording-breadcrumbs--message_board centered u-position-context app-mobile__hide" aria-label="breadcrumb" data-controller="breadcrumbs" data-action="click->breadcrumbs#navigateBackOneLevel" data-target="breadcrumbs.navbar">
+  <h1 class="recording-breadcrumb" data-bridge-header="">
+  <strong class="u-position-context ">
+    <button name="button" type="submit" class="recording-breadcrumb__jump" aria-expanded="false" data-target="breadcrumbs.openJumpMenu" data-behavior="toggle_expansion_on_click toggle_breadcrumbs_menu">Quick nav</button>
+
+    <a class="decorated" > <%= @project.name %> </a>
+  </strong>
+  </h1>
+</nav>
+
+<div class="panel panel--perma">
+ <article class="message-board">
+    <header class="perma__header push--bottom">
+      <h1 class="perma__title perma__title--toolbar app-ios__web-header" data-bridge-header="">Message Board</h1>
+
+      <label class="perma__new app-ios__web-header-new">
+          <%= link_to 'New Message', new_project_disqux_path(@project), class: "btn btn--small btn--primary btn--with-icon btn--add-icon-reversed" %>
+        </label>
+    </header>     
+      <section class="message-board__content push--top">
+        <bc-infinite-page page="1" reached-infinity="" direction="down" trigger="bottom">
+          <table class="messages-table messages-table--for-index" data-infinite-page-container="">
+              <tbody>
+                <% @disquxes.each do |disqux| %>  
+                <tr class="messages-table__row">
+                <td class="messages-table__avatar">
+                <img srcset="https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x1?v=1 1x, https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x2?v=1 2x, https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x3?v=1 3x, https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x4?v=1 4x" title="Abubakar Adamu Abdulwahab, Projects" alt="Abubakar Adamu Abdulwahab" data-behavior="rich_avatar" data-rich-avatar-url="/4423585/people/28487203/rich_avatar" data-avatar-for-person-id="28487203" data-turbolinks-recyclable="true" data-controller="lazy-image" class="avatar" src="https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x1?v=1" width="64" height="64">
+                </td>
+                    <td class="messages-table__what">
+                    <a href="/4423585/buckets/15375305/messages/2355613057">
+                        <strong class="messages-table__subject">
+                        <%= disqux.title  %>                  
+                        </strong>
+                        <span class="messages-table__overflow">
+                        <span class="txt--uncolor">
+                            <%= disqux.title  %>
+                            <span class="u-hide-on-template">• <time datetime="2020-01-22T18:19:00Z" data-local="time-or-date" title="January 22, 2020 at 7:19pm WAST">Jan 22</time></span>
+                        </span>                         
+                        </span>
+                    </a>    
+                </td>
+                <td class="messages-table__comments right">
+                    <a class="comments-balloon comments-balloon--big" href="/4423585/buckets/15375305/messages/2355613057">1</a>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+          </table>
+    </bc-infinite-page>     
+    </section>
+  </article>
+
+ 
+</div>

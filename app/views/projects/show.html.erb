@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<div id="main">
+    <div class="panel panel--project">
+      <header class="project-header project-header--for-home centered u-position-context">    
+        <div class="project-header__details">
+      <h1 class="project-header__name--overview" data-bridge-header="">
+        <span class="project-header__name-text"> <%= @project.name %> </span>
+      </h1>
+    </div>
+      <div class="project-avatars centered push_half--top push_quarter--bottom">
+        <div class="project-avatars__edit">
+          <a class="project-avatars__edit-button btn btn--small" title="Add or remove people…" >
+            <span class="project-avatars__edit-text--full">Add/remove people</span>
+            <span class="project-avatars__edit-text--short">Add/remove</span>
+        </a>    
+        </div>
+      </div>
+      </header>
+      <section class="project-dock centered">
+        <div class="card-grid card-grid--6-up" >            
+      <article  class="card card--message_board card--app card--docked"  >
+        <%= render "message" %>
+        
+      </article>
+      <article  class="card card--vault card--app card--docked" >
+        <%= render "attachments" %>        
+      </article>
+      
+      <article class="card card--todoset card--app card--docked">
+        <%= render "task" %>         
+      </article>
+     
+    
+        </div>
+    
+      
+    </section>
+    
+    </div>
+
+</div>
+
+
+<p> 
+  <%=  @project.uploads.count %>
+</p>
+
+<div class="disqus">
+  <%= link_to 'Message Board',  project_disquxes_path(@project.id) %>
+</div>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

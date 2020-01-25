@@ -1,0 +1,32 @@
+<main id="main-content" class="loading__hide  u-hide-focus" data-appearing-on="" data-bucket-url="" data-bucket-id="" tabindex="-1">
+    <div class="panel filterable-projects">
+        <header class="centered" role="presentation">
+            <div class="push--top">
+              <div class="projects-filter">
+                <input name="projects_filter" type="text" class="input projects-filter__input" data-behavior="content_filter_input" placeholder="Jump to a team or project…" autofocus="true" spellcheck="false" autocorrect="off" autocomplete="chrome-is-buggy" data-fixed-autocomplete-off="">
+              </div>
+            </div>
+            <p class="metadata push_quarter--top txt--small hide_on_mobile" data-behavior="hide_when_content_filter_active">
+              Press <span data-role="jump-menu-modifier-key">Ctrl</span>+J to quickly jump to a project or team from anywhere.
+            </p>
+        </header>
+        <section class="project-inex__section">
+            <%= render 'teamNew' %>
+        </section>
+        <section class="project-inex__section">
+            <%= render 'projectNew' %>
+            <div class="card-grid--projects" data-role="project_group_items">
+                <%= render 'projects' %>        
+            </div>        
+      </section>
+
+    </div>
+    
+</main>
+
+
+<p><%= link_to 'Show', users_path %></p>
+<p><%= link_to 'Project', projects_path %></p>
+<p><%= link_to 'Team', teams_path %></p>
+<p><%= link_to 'Login', login_path %></p>
+<%= link_to 'Sign Up', new_user_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Body</th>
+      <th>Disqux</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user_id %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.disqux_id %></td>
+        <td><%= link_to 'Show', project_disqux_comment_path(@project_id, @disqux_id,comment.id) %></td>
+        <td><%= link_to 'Edit', edit_project_disqux_comment_path(@project_id, @disqux_id,comment.id) %></td>
+        <td><%= link_to 'Destroy', project_disqux_comment_path(@project_id, @disqux_id,comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment', new_project_disqux_comment_path(@project_id,@disqux_id) %>

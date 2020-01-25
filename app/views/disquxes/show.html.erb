@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<%= render "nav" %>
+<p>
+  <strong>Title:</strong>
+  <%= @disqux.title %>
+</p>
+
+<%= link_to 'Create Comment',  new_project_disqux_comment_path(@project, @disqux) %> |
+<%= link_to 'Edit', edit_project_disqux_path(@disqux) %> |
+<%= link_to 'Back', project_disquxes_path %>

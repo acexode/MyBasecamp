@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Disquxes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @disquxes.each do |disqux| %>
+      <tr>
+        <td><%= disqux.title %></td>      
+        <td><%= link_to 'Show', project_disqux_path(@project, disqux.id) %></td>
+        <td><%= link_to 'Edit', edit_project_disqux_path(@project, disqux,) %></td>
+        <td><%= link_to 'Destroy', project_disqux_path(@project, disqux), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Disqux', new_project_disqux_path(@project) %>

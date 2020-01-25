@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyBaseCamp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" media="all" href="https://bc3-production-assets-cdn.basecamp-static.com/assets/fonts-0adca736826e5341a26aa294e6302bb2284836e97151246bbe094a75e994e2fc.css" data-turbolinks-track="reload">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+    <div class="nav">
+      <nav id="my_navigation" aria-label="Main" class="nav__bar" data-turbolinks-permanent="">
+       
+        <ul class="nav__main list--unbulleted flush loading__hide u-display-ib" data-controller="scroll-toggle" data-action="scroll@window->scroll-toggle#toggle" data-scroll-toggle-class="nav__main--scrolled">
+            <li class="nav__item">
+              <%= link_to 'Home', root_path, :class => "nav__link nav__link--home" %>              
+          </li>  
+            <li class="nav__item nav-menu u-position--top-right">
+             <a class="nav__link nav__link--home">
+               <%= current_user.name %>            
+
+             </a>
+          </li>  
+        </ul>  
+      </nav>
+    </div>
+    
+    <%= yield %>
+    
+    <%= javascript_pack_tag 'script' %>
+  </body>
+</html>

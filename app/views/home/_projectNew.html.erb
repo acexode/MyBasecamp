@@ -1,0 +1,17 @@
+<header class="centered">
+    <h3 class="project-index__header break break--on-background push--top push_half--bottom">
+      <span>Projects</span>
+    </h3>
+
+      <aside class="project-index__toolbar project-index__toolbar--new hide-from-clients" role="presentation" data-behavior="hide_when_content_filter_active">
+  <span class="options-menu options-menu--add-project" data-purpose="team" data-behavior="expandable render_new_project_form_on_expand reveal_on_expand">
+    <%= link_to 'New ', new_project_path, class: "options-menu__expansion-toggle btn btn--small"  %>
+    
+    <div class="options-menu__content expanded_content" data-role="new_project_form_container revealable_content" data-behavior="collapse_on_clickoutside">
+    </div>
+  </span>
+</aside>
+ 
+
+
+  </header>

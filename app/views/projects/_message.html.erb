@@ -1,0 +1,32 @@
+<div class="card__content">  
+  <header class="card__header centered">
+    <h1 class="card__heading flush txt--truncate">
+      <span class="card__title">Message Board</span>
+    </h1>
+  </header>  
+ 
+  <section class="card__body  push_half--top">        
+    <div class="card__body-content">
+      <% @disquxes.each do |disqux| %>          
+      <a href="(project_disqux_path(@project, disqux.id)">
+      <%= link_to (project_disqux_path(@project, disqux.id)) do %>    
+    <div class="messages-table messages-table--for-card">      
+    <div class="messages-table__cell messages-table__what">
+      <div class="messages-table__overflow">
+        <strong><%= disqux.title  %></strong><br>
+      </div>
+    </div>    
+    <div class="messages-table__cell messages-table__comments right">
+        <span class="comments-balloon">
+          <% if  Comment.where(disqux_id: disqux.id)  %>
+          <span class="comments-balloon__count"> <%= Comment.where(disqux_id: disqux.id).count %> </span>
+          <% end %>
+        </span>
+    </div>
+  </div>
+</a>
+  <% end %>
+  <% end %> 
+    </div>
+  </section>
+</div>
