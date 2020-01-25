@@ -33,8 +33,8 @@
                         </strong>
                         <span class="messages-table__overflow">
                         <span class="txt--uncolor">
-                            <%= disqux.title  %>
-                            <span class="u-hide-on-template">• <time datetime="2020-01-22T18:19:00Z" data-local="time-or-date" title="January 22, 2020 at 7:19pm WAST">Jan 22</time></span>
+                            <%= userName(disqux.project_id)  %>
+                            <span class="u-hide-on-template">• <%= created(disqux.created_at)  %>   </span>
                         </span>                         
                         </span>
                     </a>    

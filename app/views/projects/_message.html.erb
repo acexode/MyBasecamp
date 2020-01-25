@@ -6,10 +6,9 @@
   </header>  
  
   <section class="card__body  push_half--top">        
+    <% @disquxes.each do |disqux| %>        
+    <%= link_to (project_disquxes_path(@project)) do %>    
     <div class="card__body-content">
-      <% @disquxes.each do |disqux| %>          
-      <a href="(project_disqux_path(@project, disqux.id)">
-      <%= link_to (project_disqux_path(@project, disqux.id)) do %>    
     <div class="messages-table messages-table--for-card">      
     <div class="messages-table__cell messages-table__what">
       <div class="messages-table__overflow">

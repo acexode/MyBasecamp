@@ -7,17 +7,18 @@ class DisquxesController < ApplicationController
   # GET /disquxes.json
  
   def index
-     @disquxes = Disqux.all
+    @project =  Project.find(params[:project_id])
+     @disquxes = Disqux.where(project_id: @project)
     #  @project = params[:project_id]
-      # render plain: params.inspect
+    #  render plain: @disquxes.inspect
     end
     
     # GET /disquxes/1
     # GET /disquxes/1.json
     def show
-      @project =  Project.find(params[:id])
+      @project =  Project.find(params[:project_id])
       @disquxes = Disqux.all
-      # render plain: @disquxes.inspect
+      #  render plain: @disquxes.inspect
     end
     
     # GET /disquxes/new

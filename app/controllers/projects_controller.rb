@@ -5,10 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
-    @disquxes = Disqux.where('project_id', 5)
+    # @projects = Project.all
+    # @disquxes = Disqux.where('project_id', 5)
    
-    #  render plain: params.inspect
+    # render plain: params.inspect
   end
 
   # GET /projects/1
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     # @disqux = @project.disquxes.build
     @disquxes = Disqux.where(project_id: @project.id)
     #  @comments = Comment.where('project_id')
-    # render plain: @disquxes.inspect
+    #  render plain: @disquxes.inspect
   end
 
   # GET /projects/new
