@@ -1,9 +1,70 @@
 <p id="notice"><%= notice %></p>
-<%= render "nav" %>
-<p>
-  <strong>Title:</strong>
-  <%= @disqux.title %>
-</p>
+<nav class="recording-breadcrumbs recording-breadcrumbs--message_board centered u-position-context app-mobile__hide" aria-label="breadcrumb" data-controller="breadcrumbs" data-action="click->breadcrumbs#navigateBackOneLevel" data-target="breadcrumbs.navbar">
+  <h1 class="recording-breadcrumb" data-bridge-header="">
+    <div class="recording-breadcrumb__title" data-behavior="expandable">
+  <span class="a-for-screen-reader">quick nav</span>
+
+  <strong class="u-position-context ">
+    <button name="button" type="submit" class="recording-breadcrumb__jump" aria-expanded="false" data-target="breadcrumbs.openJumpMenu" data-behavior="toggle_expansion_on_click toggle_breadcrumbs_menu">Quick nav</button>
+
+    <a class="decorated" data-target="breadcrumbs.link">Project Awesome</a>
+  </strong>
+
+  <span class="recording-breadcrumb__children">    
+      <div class="recording-breadcrumb__separator" aria-hidden="true"> › </div><span class="recording-breadcrumb__link"><a class="decorated">Message Board</a></span>
+  </span>  
+</div>
+  </h1>
+</nav>
+
+<div class="panel panel--perma">
+ <article class="message-board">
+    <header class="perma__header push--bottom">
+      <h1 class="perma__title perma__title--toolbar app-ios__web-header" data-bridge-header="">Message Board</h1>     
+    </header>     
+      <section class="message-board__content push--top">
+        <bc-infinite-page page="1" reached-infinity="" direction="down" trigger="bottom">
+          <table class="messages-table messages-table--for-index" data-infinite-page-container="">
+              <tbody>                              
+                <tr class="messages-table__row">
+                    
+                    <td class="messages-table__what">                 
+                        <strong class="messages-table__subject">
+                        <%= @disqux.title  %>                  
+                        </strong>
+                        <span class="messages-table__overflow">
+                        <span class="txt--uncolor">
+                            <%= userName(@disqux.project_id)  %>
+                            <span class="u-hide-on-template">• <%= created(@disqux.created_at)  %>   </span>
+                        </span>                         
+                        </span>
+                </td>
+                <td class="messages-table__comments right">
+                    <a class="comments-balloon comments-balloon--big" href="/4423585/buckets/15375305/messages/2355613057">1</a>
+                </td>
+            </tr>           
+        </tbody>
+          </table>
+    </bc-infinite-page>   
+      
+    </section>
+    <h2 class="thread__headline break break--thick break--flush-left">
+    <span>
+      <span class="comments-balloon comments-balloon--mega" data-behavior="comment_counter" style="">
+        1
+      </span>
+      <span data-behavior="comment_counter_description">
+          Comment
+      </span>
+    </span>
+  </h2>
+  </article>
+ 
+  <%= render "comments/form" %>
+
+
+ 
+</div>
 
 <%= link_to 'Create Comment',  new_project_disqux_comment_path(@project, @disqux) %> |
 <%= link_to 'Edit', edit_project_disqux_path(@disqux) %> |

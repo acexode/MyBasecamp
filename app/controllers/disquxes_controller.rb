@@ -17,8 +17,10 @@ class DisquxesController < ApplicationController
     # GET /disquxes/1.json
     def show
       @project =  Project.find(params[:project_id])
-      @disquxes = Disqux.all
-      #  render plain: @disquxes.inspect
+      @disqux = Disqux.find(params[:id])
+      @user = current_user.id
+      @comment = Comment.new
+      # render plain: @disqux.inspect
     end
     
     # GET /disquxes/new

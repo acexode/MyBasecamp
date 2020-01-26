@@ -21,13 +21,13 @@
         <bc-infinite-page page="1" reached-infinity="" direction="down" trigger="bottom">
           <table class="messages-table messages-table--for-index" data-infinite-page-container="">
               <tbody>
-                <% @disquxes.each do |disqux| %>  
+                <% @disquxes.each do |disqux| %>                 
                 <tr class="messages-table__row">
                 <td class="messages-table__avatar">
                 <img srcset="https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x1?v=1 1x, https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x2?v=1 2x, https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x3?v=1 3x, https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x4?v=1 4x" title="Abubakar Adamu Abdulwahab, Projects" alt="Abubakar Adamu Abdulwahab" data-behavior="rich_avatar" data-rich-avatar-url="/4423585/people/28487203/rich_avatar" data-avatar-for-person-id="28487203" data-turbolinks-recyclable="true" data-controller="lazy-image" class="avatar" src="https://bc3-production-assets-cdn.basecamp-static.com/4423585/people/BAhpBCOusgE=--a3d476a5e1a2221065c53a4c4fe09afd17f00ef1/avatar-64-x1?v=1" width="64" height="64">
                 </td>
                     <td class="messages-table__what">
-                    <a href="/4423585/buckets/15375305/messages/2355613057">
+                   <%= link_to  (project_disqux_path(@project, disqux.id)) do %>
                         <strong class="messages-table__subject">
                         <%= disqux.title  %>                  
                         </strong>
@@ -37,7 +37,8 @@
                             <span class="u-hide-on-template">• <%= created(disqux.created_at)  %>   </span>
                         </span>                         
                         </span>
-                    </a>    
+                  <% end %>
+                      
                 </td>
                 <td class="messages-table__comments right">
                     <a class="comments-balloon comments-balloon--big" href="/4423585/buckets/15375305/messages/2355613057">1</a>

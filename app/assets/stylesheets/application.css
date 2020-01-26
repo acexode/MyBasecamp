@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
  */
 body{
     background-color: #f6f2ef;
