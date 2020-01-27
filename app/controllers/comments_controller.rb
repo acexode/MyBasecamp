@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
       # render plain: comment_params.inspect
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to project_disqux_comments_path(@project_id,@disqux_id), notice: 'Comment was successfully created.' }
+        format.html { redirect_to project_disqux_path(@project_id,@disqux_id), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
